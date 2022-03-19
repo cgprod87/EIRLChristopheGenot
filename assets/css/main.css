@@ -1,5 +1,7 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@400;700&display=swap');
 
 /*
 	Landed by HTML5 UP
@@ -3057,10 +3059,10 @@ input, select, textarea {
 		}
 
 		.spotlight:before {
-			background-image: url("images/overlay.png");
+			/* background-image: url("images/overlay.png"); */
 			content: '';
-			display: block;
-			height: 100%;
+			display: contents;
+			height: 50%;
 			left: 0;
 			top: 0;
 			width: 100%;
@@ -3122,7 +3124,6 @@ input, select, textarea {
 		}
 
 		.spotlight.left .content, .spotlight.right .content {
-			height: 101%;
 			padding: 6em 3em;
 			top: 0;
 			width: 28em;
@@ -3445,7 +3446,22 @@ input, select, textarea {
 		background: transparent;
 		box-shadow: none;
 		position: absolute;
+		pointer-events: none;
 	}
+
+	@media (min-aspect-ratio: 16/9) {
+		.video-container iframe {
+		  /* height = 100 * (9 / 16) = 56.25 */
+		  height: 56.25vw;
+		}
+	  }
+		  
+	  @media (max-aspect-ratio: 16/9) {
+		.video-container iframe {
+		  /* width = 100 / (9 / 16) = 177.777777 */
+		  width: 177.78vh;
+		}
+	  }
 
 /* Banner */
 
@@ -3529,6 +3545,54 @@ input, select, textarea {
 		background-attachment: scroll;
 	}
 
+	.video-container{
+		width: 100vw;
+		height: 100vh;
+	  }
+		  
+	  iframe {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 100vw;
+		height: 100vh;
+		transform: translate(-50%, -50%);
+	  }
+
+	  .text {
+		color: #FFFFFF;
+		position: fixed;
+		left: 30%;
+		top: 30%;
+		transform: translate(-50%, -50%);		
+	  }
+
+	  .text h1 {
+		font-family: 'Khand', sans-serif;
+		font-size: 80px;
+		/* font-weight: bold; */
+	  }
+
+	  .text h2 {
+		font-family: 'Gochi Hand', cursive;
+		font-size: 80px;
+	}
+
+	.embed-container { 
+		/* margin-top: 20%; */
+		position: relative; 
+		padding-bottom: 56.25%; 
+		height: 0; 
+		overflow: hidden;
+		max-width: 100%; } 
+		  
+	.embed-container iframe, .embed-container object, .embed-container embed { 
+		position: absolute; 
+		top: 50%;
+		left: 50%;
+		width: 70%;
+		height: 70%; 
+	}
 /* Footer */
 
 	#footer {
@@ -3674,7 +3738,7 @@ input, select, textarea {
 				}
 
 				.spotlight .content {
-					background-color: #1c1d26;
+					background-color: rgba(255, 255, 255, 0.075);
 					border-width: 0 !important;
 					border-top-width: 0.35em !important;
 					bottom: auto !important;
